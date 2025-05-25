@@ -1,0 +1,35 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    max-width: 600px;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+}
+
+
+.messages-box {
+    flex-grow: 1;
+    padding: 10px;
+    overflow-y: auto;
+    border-bottom: 1px solid #ccc;
+    background-color: #f9f9f9;
+}
+
+textarea {
+    resize: none;
+    height: 60px;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-top: 1px solid #ccc;
+    outline: none;
+    box-sizing: border-box;
+}

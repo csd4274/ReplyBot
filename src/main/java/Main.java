@@ -4,5 +4,6 @@ public class Main {
         READFILE rf = READFILE.getInstance();
         bot robot = bot.getInstance();
         System.out.println(robot.Reply("Jo Mama"));
+
     }
 }

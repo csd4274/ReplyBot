@@ -35,6 +35,7 @@ public class bot {
             case 4: return "Come again?";
             case 5: return "I am so confused.";
             default: return "Ask me something else.";
+
         }
 
     }

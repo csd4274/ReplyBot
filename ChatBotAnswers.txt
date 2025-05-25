@@ -1,0 +1,13 @@
+'My name is Apostolos, I am currently studying Computer Science in the University of Crete.' 1
+'All I have ever done are projects from my University assignments. That includes a functional compiler for the alpha programming language, a program that allows the c++ complier to compile JSON files in their normal format and my personal favourite : the game of life in java.' 2
+'I have become keen on using java/c/c++ and a little bit of python. I can also use the classic HTML/CSS/JAVASCRIPT combo for websites.' 3
+'I am currently studying Computer Science in the University of Crete.' 4
+'I like running, reading, going to the gym, taking long walks, debating and video games.' 5
+'Where do birds stay when they travel? Someplace cheep.' 6
+'Hopefully I will have my bachelor's degree, I'll be finished with my military duties and I will be working in a suitable job' 7
+'Sugar free Freddo Espresso' 8
+'#315a39' 9
+'I love pork chops' 10
+'Doctor Appointments' 11
+'At least 2, on a rare occasion 3' 12
+'I have worked as a waiter on a tavern as well as a beach resort and I have worked at a Super Market on the fruits and vegetables aisle' 13

@@ -1,0 +1,30 @@
+'Who are' 1
+'About yourself' 1
+'your name' 1
+'introduce yourself' 1
+'projects' 2
+'worked on' 2
+'skills' 3
+'expertise' 3
+'study' 4
+'education' 4
+'Hobbies' 5
+'pass time' 5
+'free time' 5
+'spare time' 5
+'tell a joke' 6
+'tell joke' 6
+'yourself in five years' 7
+'yourself in 5 years' 7
+'coffee' 8
+'Favourite Beverage' 8
+'Favourite colour' 9
+'Favorite color' 9
+'Favourite food' 10
+'Favorite food' 10
+'worst nightmare' 11
+'greatest fear' 11
+'How many coffees do you drink a day' 12
+'How many cups of coffee do you drink a day' 12
+'Worked before' 13
+'work experience' 13

@@ -7,11 +7,18 @@
     <script src="../Javascript/Request.js"></script>
 </head>
 <body>
+<div class="chat-title">TALK TO TSANTAKIS' BOT!</div>
 <div class="chat-container">
     <div class="messages-box" id="messagesBox" contenteditable="false">
         <p>Bot: Welcome!</p>
     </div>
-    <textarea id="messageInput"></textarea>
+    <textarea id="messageInput" placeholder="Type your message here..."></textarea>
+    <div class="quick-buttons">
+        <button onclick="setPredefinedText('Who are you?')">Who are you?</button>
+        <button onclick="setPredefinedText('What\'s your education?')">What's your education?</button>
+        <button onclick="setPredefinedText('What projects have you worked on?')">What projects have you worked on?</button>
+        <button onclick="setPredefinedText('Tell a joke')">Tell a joke</button>
+    </div>
 </div>
 </body>
 </html>

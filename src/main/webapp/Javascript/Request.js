@@ -6,6 +6,10 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+window.setPredefinedText = function(text) {
+    document.getElementById("messageInput").value = text;
+    sendRequest();
+}
 function sendRequest() {
     var message = document.getElementById("messageInput").value;
     var payload = JSON.stringify({ message: message });

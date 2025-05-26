@@ -1,3 +1,5 @@
+package Bot;
+
 import java.util.HashMap;
 import java.util.Random;
 //Singleton Class

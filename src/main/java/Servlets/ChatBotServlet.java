@@ -1,3 +1,5 @@
+package Servlets;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.annotation.WebServlet;
@@ -9,6 +11,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import Bot.bot;
 
 @WebServlet("/testing")
 public class ChatBotServlet extends HttpServlet {
@@ -33,8 +36,6 @@ public class ChatBotServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         System.out.println("Deployment directory: " + getServletContext().getRealPath("/"));
         ObjectMapper mapper = new ObjectMapper();
-        READFILE rf = READFILE.getInstance();
-        rf.ReadTheFiles();
         bot robot = bot.getInstance();
 
         try {
@@ -42,7 +43,7 @@ public class ChatBotServlet extends HttpServlet {
             JsonNode jsonNode = mapper.readTree(req.getReader());
             String message = jsonNode.get("message").asText();
             System.out.println(message);
-            // Get reply from bot
+            // Get reply from Bot.bot
             String replyText = robot.Reply(message);
 
             // Prepare JSON response with single field "reply"

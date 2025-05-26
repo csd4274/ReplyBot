@@ -1,6 +1,8 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -34,78 +36,80 @@ public class READFILE{
         return null;
     }
 
-    private void ReadTheFiles(){
-        // the logic behind the file is one line = one input and must be similar to:
-        // "answer/question" 1
-        //where answer/question is the text of the answer or question and 1 is the corresponding answer or question code ie. what question was asked to produce that answer
-        try  {
-            br = new BufferedReader(new FileReader("ChatBotAnswers.txt"));
-            String line;
-            while ((line = br.readLine()) != null) {
-                if(line.length() <= 0 ){
-                    continue;
+    public void ReadTheFiles() {
+        try {
+            // Read ChatBotAnswers.txt from resources folder
+            try (BufferedReader br = new BufferedReader(new InputStreamReader(
+                    getClass().getClassLoader().getResourceAsStream("ChatBotAnswers.txt"), StandardCharsets.UTF_8))) {
+                if (br == null) {
+                    throw new IOException("Resource ChatBotAnswers.txt not found");
                 }
-                if(line.charAt(0) == '\''){
-                    int i = 1;
-                    String text = "";
-                    while(i < line.length()){
-                        if(line.charAt(i) == '\''){
-                            break;
-                        }
-                        text += line.charAt(i);
-                        i++;
+                String line;
+                while ((line = br.readLine()) != null) {
+                    if (line.length() <= 0) {
+                        continue;
                     }
-                    if(i >= line.length() || i +2 >= line.length()){
+                    if (line.charAt(0) == '\'') {
+                        int i = 1;
+                        StringBuilder text = new StringBuilder();
+                        while (i < line.length()) {
+                            if (line.charAt(i) == '\'') {
+                                break;
+                            }
+                            text.append(line.charAt(i));
+                            i++;
+                        }
+                        if (i >= line.length() || i + 2 >= line.length()) {
+                            System.err.println("Bad input file ChatBotAnswers.txt");
+                            throw new IOException();
+                        }
+                        // skip the space
+                        i += 2;
+
+                        Answers.put(getNextNumber(line.substring(i)), text.toString());
+
+                    } else {
                         System.err.println("Bad input file ChatBotAnswers.txt");
                         throw new IOException();
                     }
-                    //skip the space
-                    i += 2;
-
-                    Answers.put(getNextNumber(line.substring(i)),text);
-
-
-                }
-                else{
-                    System.err.println("Bad input file ChatBotAnswers.txt");
-                    throw new IOException();
                 }
             }
-            br.close();
 
-            //Now read the questions
-
-            br = new BufferedReader(new FileReader("ChatBotQuestions.txt"));
-            while ((line = br.readLine()) != null) {
-                if(line.length() <= 0 ){
-                    continue;
+            // Read ChatBotQuestions.txt from resources folder
+            try (BufferedReader br = new BufferedReader(new InputStreamReader(
+                    getClass().getClassLoader().getResourceAsStream("ChatBotQuestions.txt"), StandardCharsets.UTF_8))) {
+                if (br == null) {
+                    throw new IOException("Resource ChatBotQuestions.txt not found");
                 }
-                if(line.charAt(0) == '\''){
-                    int i = 1;
-                    String text = "";
-                    while(i < line.length()){
-                        if(line.charAt(i) == '\''){
-                            break;
-                        }
-                        text += line.charAt(i);
-                        i++;
+                String line;
+                while ((line = br.readLine()) != null) {
+                    if (line.length() <= 0) {
+                        continue;
                     }
-                    if(i >= line.length() || i +1 >= line.length()){
+                    if (line.charAt(0) == '\'') {
+                        int i = 1;
+                        StringBuilder text = new StringBuilder();
+                        while (i < line.length()) {
+                            if (line.charAt(i) == '\'') {
+                                break;
+                            }
+                            text.append(line.charAt(i));
+                            i++;
+                        }
+                        if (i >= line.length() || i + 1 >= line.length()) {
+                            System.err.println("Bad input file ChatBotQuestions.txt");
+                            throw new IOException();
+                        }
+                        // skip the space
+                        i += 2;
+                        Questions.put(text.toString(), getNextNumber(line.substring(i)));
+
+                    } else {
                         System.err.println("Bad input file ChatBotQuestions.txt");
                         throw new IOException();
                     }
-                    //skip the space
-                    i += 2;
-                    Questions.put(text,getNextNumber(line.substring(i)));
-
-
-                }
-                else{
-                    System.err.println("Bad input file ChatBotAnswers.txt");
-                    throw new IOException();
                 }
             }
-            br.close();
         } catch (IOException e) {
             e.printStackTrace();
         }

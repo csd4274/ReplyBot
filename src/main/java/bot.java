@@ -17,6 +17,10 @@ public class bot {
 
     public String Reply(String question){
         Random r= new Random();
+        if (Questions.isEmpty()) {
+            Answers = READFILE.getInstance().getAnswers();
+            Questions = READFILE.getInstance().getQuestions();
+        }
         question = question.toLowerCase();
         for (String phrase : Questions.keySet()) {
             if (question.contains(phrase.toLowerCase())) {
